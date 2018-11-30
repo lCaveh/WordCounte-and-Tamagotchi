@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
-using WordCounter;
 using System.Linq;
 
-namespace WordCounter.Models
+namespace WordCounterSpace.Models
 {
     public class WordCounter
     {
       //Theses two praperties keep user's word and sentence.
       private string MainWord;
       private string MainSentence;
+      private string OriginalWord;
       //This list keep the words in the user sentence.
       private List<string> WordsOfSentence= new List<string>{};
       //Constructor
@@ -18,6 +18,7 @@ namespace WordCounter.Models
       {
         MainWord=userWord;
         MainSentence=userSentence;
+        OriginalWord=userWord;
       }
       //This method will check the word's and number's validaty.
       public bool IsValid()
@@ -91,6 +92,10 @@ namespace WordCounter.Models
       public string GetSentence()
       {
         return MainSentence;
+      }
+      public string GetOriginalWord()
+      {
+        return OriginalWord;
       }
       public List<string> GetWordsOfSentence()
       {

@@ -1,24 +1,18 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Main Page</title>
+    <title>Word Counter Index</title>
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Menu</h1>
-        <h2>Please Select an Item</h2><br><br><br>
-        <div class="row">
-          <div class="col-md-6">
-            <a href='/WordCounter/new'>Tap here to use WordCounter</a>
-          </div>
-          <div class="col-md-6">
-            <a href=''>Tap here to play Tamagotchi game</a>
-          </div>
-        </div>
+        <h1>The Result</h1><br><br>
+        <h2>@Model.GetOriginalWord() is repeated @Model.HowManyTimesItRepeated() times in your sentence.</h2><br><br><br>
+        <a href='/WordCounter/new'>Tap here to try new word and sentence</a>
       </div>
     </div>
   </body>

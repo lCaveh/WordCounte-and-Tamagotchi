@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using WordCounter.Controllers;
-using WordCounter.Models;
+using WordCounterSpace.Controllers;
+using WordCounterSpace.Models;
 
-namespace WordCounter.Tests
+namespace WordCounterSpace.Tests
 {
     [TestClass]
     public class HomeControllerTest

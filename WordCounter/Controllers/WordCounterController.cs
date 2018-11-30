@@ -1,42 +1,33 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using WordCounter.Models;
+using WordCounterSpace.Models;
+using System;
 
-namespace WordCounter.Controllers
+namespace WordCounterSpace.Controllers
 {
-  public class HomeController : Controller
+  public class WordCounterController : Controller
   {
-    [HttpGet("/items")]
-    public ActionResult Index()
-    {
-     List<Item> allItems = Item.GetAll();
-      return View(allItems);
-    }
 
-    [HttpGet("/items/new")]
+    [HttpGet("/WordCounter/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/items")]
-    public ActionResult Create(string description)
+    [HttpPost("/WordCounter")]
+    public ActionResult Create(string word, string sentence)
     {
-      Item myItem = new Item(description);
-      return RedirectToAction("Index");
-    }
-
-    [HttpPost("/items/delete")]
-    public ActionResult DeleteAll()
-    {
-      Item.ClearAll();
-      return View();
-    }
-    [HttpGet("/items/{id}")]
-    public ActionResult Show(int id)
-    {
-      Item item = Item.Find(id);
-      return View(item);
+      WordCounter wordCounter = new WordCounter(word, sentence);
+      if (wordCounter.IsValid())
+      {
+        wordCounter.ChangeToLowerCase();
+        wordCounter.ChangeSentenceToWords();
+        return View("Index",wordCounter);
+      }
+      else
+      {
+        return View("New");
+      }
     }
   }
 }
