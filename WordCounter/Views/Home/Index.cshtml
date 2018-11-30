@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+    label{ text-align:center; display: block; }
+    button{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;}
+    </style>
+    <title>Main Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+      
+        <div class="row">
+          <div class="col-md-6">
+            <form action="/tamagotchi/addattention" method="post">
+              <button type="submit" name="doll">Doll</button><br>
+              <input type="hidden" name="amount" value="5">
+            </form>
+          </div>
+          <div class="col-md-6">
+            <form action="/tamagotchi/addattention" method="post">
+              <button type="submit" name="phone">Phone</button><br>
+              <input type="hidden" name="amount" value="10">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
