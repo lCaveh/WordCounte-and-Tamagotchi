@@ -1,0 +1,106 @@
+@using TamagotchiSpace.Models;
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+    label{ text-align:center; display: block; }
+    button{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;}
+    </style>
+    <title>Main Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="name">@Model.GetName()</label>
+          </div>
+          <div class="col-md-3">
+            <label for="energy">Energy : @Model.GetCurrentEnergy()</label>
+          </div>
+          <div class="col-md-3">
+            <label for="hunger">Hunger : @Model.GetCurrentHunger()</label>
+          </div>
+          <div class="col-md-3">
+            <label for="attention">Attention : @Model.GetCurrentAttention()</label>
+          </div>
+        </div><br><br>
+        <div class="row">
+          <div class="col-md-12">
+            <img id="pikachu" src="@Url.Content(Model.GetImageURL())" alt="happy">
+          </div>
+        </div><br><br>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="play">Play</label><br>
+            <form action="/tamagotchi/addattention" method="post">
+              <button type="submit" name="ball">Ball(Add 6 to Attention)</button><br>
+              <input type="hidden" name="amount" value="2">
+            </form>
+            <form action="/tamagotchi/addattention" method="post">
+              <button type="submit" name="doll">Doll(Add 15 to Attention)</button><br>
+              <input type="hidden" name="amount" value="5">
+            </form>
+            <form action="/tamagotchi/addattention" method="post">
+              <button type="submit" name="phone">Phone(Add 30 to Attention)</button><br>
+              <input type="hidden" name="amount" value="10">
+            </form>
+          </div>
+          <div class="col-md-3">
+            <label for="food">Foods</label><br>
+            <form action="/tamagotchi/addfood" method="post">
+              <button type="submit" name="donut">Feed Donut(Add 6 to Hunger)</button><br>
+              <input type="hidden" name="amount" value="2">
+          </form>
+            <form action="/tamagotchi/addfood" method="post">
+              <button type="submit" name="chicken">Feed Chicken(Add 15 to Hunger)</button><br>
+              <input type="hidden" name="amount" value="5">
+          </form>
+            <form action="/tamagotchi/addfood" method="post">
+              <button type="submit" name="cake">Feed Cake(Add 30 to Hunger)</button><br>
+              <input type="hidden" name="amount" value="10">
+            </form>
+          </div>
+          <div class="col-md-3">
+            <label for="rest">Rest</label><br>
+            <form action="/tamagotchi/addrest" method="post">
+              <button type="submit" name="sit">Sit(Add 6 to Energy)</button><br>
+              <input type="hidden" name="amount" value="2">
+            </form>
+            <form action="/tamagotchi/addrest" method="post">
+              <button type="submit" name="takeaNap">Take a Nap(Add 15 to Energy)</button><br>
+              <input type="hidden" name="amount" value="5">
+            </form>
+            <form action="/tamagotchi/addrest" method="post">
+              <button type="submit" name="Sleep">Sleep(Add 30 to Energy)</button><br>
+              <input type="hidden" name="amount" value="10">
+            </form>
+          </div>
+          <div class="col-md-3">
+            <form action="/tamagotchi/passtime" method="post">
+              <button type="submit" name="passTime">Pass 3 second</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  $(function () {
+    setInterval(function () { $("button:last").trigger("click"); }, 3000);
+  });
+</script>
